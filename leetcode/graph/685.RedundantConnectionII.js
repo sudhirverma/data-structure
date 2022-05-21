@@ -1,6 +1,9 @@
+// https://leetcode.com/problems/redundant-connection-ii/
+
+// [[2, 1], [3, 1], [4, 2], [1, 4]]
+
 var findRedundantDirectedConnection = function (edges) {
     // collect meta data
-    debugger;
     let childCounts = new Map(), tedges = edges
     for (let [a, b] of edges) {
       childCounts.set(a, childCounts.has(a) ? childCounts.get(a) + 1 : 1)
@@ -97,8 +100,8 @@ var findRedundantDirectedConnection = function (edges) {
   
   };
   
-//   console.log(findRedundantDirectedConnection([[1, 2], [1, 3], [2, 3]])) //[2, 3]
-//   console.log(findRedundantDirectedConnection([[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]])) //[4, 1]
-console.log(findRedundantDirectedConnection([[2, 1], [3, 1], [4, 2], [1, 4]])) //[2, 1]
+  console.log(findRedundantDirectedConnection([[1, 2], [1, 3], [2, 3]])) //[2, 3]
+  // console.log(findRedundantDirectedConnection([[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]])) //[4, 1]
+// console.log(findRedundantDirectedConnection([[2, 1], [3, 1], [4, 2], [1, 4]])) //[2, 1]
 // console.log(findRedundantDirectedConnection([[4, 2], [1, 5], [5, 2], [4, 3], [4, 1]])) //[5, 2]
   

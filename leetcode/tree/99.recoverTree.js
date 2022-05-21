@@ -9,9 +9,9 @@ class NodeTree {
 }
 
 var tree = new NodeTree(1,3,null);
-tree.left = new NodeTree(3, null, null);
-// tree.left = new NodeTree(3, null, 2);
-// tree.left.right = new NodeTree(2, null, null);
+// tree.left = new NodeTree(3, null, null);
+tree.left = new NodeTree(3, null, 2);
+tree.left.right = new NodeTree(2, null, null);
 
 
 // var tree = new NodeTree(3,1,4);

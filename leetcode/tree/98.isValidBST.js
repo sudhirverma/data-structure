@@ -9,7 +9,7 @@ class NodeTree {
     }
 }
 
-var tree = new NodeTree(5,1,4);
+var tree = new NodeTree(5,1,6);
 tree.right = new NodeTree(4,3,6);
 tree.left = new NodeTree(1,null,null);
 tree.right.left = new NodeTree(3,null,null);

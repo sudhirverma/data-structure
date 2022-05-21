@@ -30,8 +30,8 @@ var generateTrees = function(n) {
         }
         return cache[start][end]
     }
-    
-    return dfs(1, n)
+    let result = dfs(1, n);
+    return result
 };
 
 console.log(generateTrees(2))
