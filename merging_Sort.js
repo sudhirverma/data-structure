@@ -1,4 +1,8 @@
+let list = [76,3,33,45,1,6,22,8,7];
+
 function merge(arr1, arr2) {
+
+    console.log(arr1, arr2);
     const results = [];
     let i = 0;
     let j = 0;
@@ -24,6 +28,7 @@ function merge(arr1, arr2) {
 }
 
 function mergeSort(arr) {
+    newList = list;
     if(arr.length <= 1) return arr;
     let mid = Math.floor(arr.length/2);
     let left = mergeSort(arr.slice(0, mid));
@@ -31,4 +36,4 @@ function mergeSort(arr) {
     return merge(left, right);
 }
 
-console.log(mergeSort([76,3,33,45,1,6,22,8,7]))
+console.log(mergeSort([5,2,6,1]))
