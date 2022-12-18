@@ -13,4 +13,4 @@
 10. Union find
 11.trie
 12. segment trees/fenwick trees
-13 bitmask
+13. bitmask
