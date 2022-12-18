@@ -11,6 +11,6 @@
   - Merge, Selection, Quick, Insertion, Bubble, Heap
 9. hash tables
 10. Union find
-11.trie
+11. trie
 12. segment trees/fenwick trees
 13. bitmask
