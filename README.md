@@ -15,3 +15,4 @@
 11. trie
 12. segment trees/fenwick trees
 13. bitmask
+
