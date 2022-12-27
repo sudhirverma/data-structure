@@ -1,90 +1,39 @@
 // https://leetcode.com/problems/network-delay-time/description/
 
-class QElement { 
-    constructor(element, priority) 
-    { 
-        this.element = element; 
-        this.priority = priority; 
-    } 
-}
 
-class PriorityQueue {
-    constructor() {
-        this.items = [];
-    }
-    enqueue(element, priority) {
-        var qElement = new QElement(element, priority); 
-        var contain = false; 
-        for (var i = 0; i < this.items.length; i++) {
-            if (this.items[i].priority > qElement.priority) {
-                this.items.splice(i, 0, qElement);
-                contain = true;
-                break;
-            }
-        }
-        if (!contain) {
-            this.items.push(qElement);
-        }
-    }
-    dequeue() {
-        if (this.isEmpty()) 
-            return "Underflow"; 
-        return this.items.shift(); 
-    }
-    isEmpty() {
-        return this.items.length == 0;
-    }
-}
+// // BFS
+var networkDelayTime = function(times, n, k) {
+    const distances = new Array(n+1).fill(Number.MAX_SAFE_INTEGER);
+    distances[0] = 0;
+    distances[k] = 0;
     
-
-class Graph {
-    constructor(N) {
-        this.num_vertices = N;
-        this.AdjList = new Map();
-    }
-    addVertex(v) {
-        this.AdjList.set(v, []);
-    }
-    addEdge(x, y, wt) {
-        this.AdjList.get(x).push({node: y, wt: wt}); 
-    }
-};
-
-
-var networkDelayTime = function(times, N, K) {
-    let graph = new Graph(N);
-    let distance = {};
-    let pq = new PriorityQueue();
-    for (var i = 1; i <= N; i++) {
-        graph.addVertex(i);
-        distance[i] = Infinity;
-    }
-    times.forEach(function(time){
-        graph.addEdge(time[0], time[1], time[2]);
+    const travels = new Array(n+1).fill().map(() => []);
+    
+    times.forEach(t => {
+        travels[t[0]].push([t[1], t[2]]);
     });
-    distance[K] = 0;
-    pq.enqueue(K, 0);
-    while (!pq.isEmpty()) {
-        let minNode = pq.dequeue();
-        let currNode = minNode.element;
-        let weight = minNode.priority;
-        let adjVertexes = graph.AdjList.get(currNode);
-        adjVertexes.forEach(function(neigh){
-            let temp = distance[currNode] + neigh.wt;
-            if (temp < distance[neigh.node]) {
-                distance[neigh.node] = temp;
-                pq.enqueue(neigh.node, distance[neigh.node]);
+    
+    const queueNode = [k];
+    
+    while(queueNode.length > 0){
+        const topNode = queueNode.shift();
+        
+        travels[topNode].forEach(c => {
+            if(distances[topNode]+c[1]<distances[c[0]]){
+                distances[c[0]] = distances[topNode]+c[1];
+                queueNode.push(c[0]);  
             }
-        })    
+        });
     }
-    let time = 0;
-    Object.keys(distance).forEach(function(node) {
-       if (distance[node] > time) {
-           time = distance[node];
-       } 
-    });
-    return time == Infinity ? -1 : time;
-};
+    const max = Math.max(...distances);
+    
+    if(max === Number.MAX_SAFE_INTEGER){
+        return -1;
+    }
+
+    return max; 
+}
+
 
 let times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2;
 console.log(networkDelayTime(times, n, k));
