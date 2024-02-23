@@ -1,4 +1,4 @@
-function countUniqueValues(arr){
+function countUniqueValues(arr) {
     let left = 0;
     let right = 1;
     while (right < arr.length) {
@@ -13,4 +13,4 @@ function countUniqueValues(arr){
     return left;
 }
 
-countUniqueValues([1,2,3,4,4,4,7,7,12,12,13])
+countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])

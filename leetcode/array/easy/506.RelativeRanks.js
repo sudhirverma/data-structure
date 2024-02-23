@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/relative-ranks/
 
 
-var findRelativeRanks = function(score) {
+var findRelativeRanks = function (score) {
     let result = [];
     let rank = {
         1: 'Gold Medal',
@@ -9,11 +9,11 @@ var findRelativeRanks = function(score) {
         3: 'Bronze Medal'
     }
     let hash = {}
-    let sortDescending = score.slice().sort((a,b) => b-a);
-    for (let i=0; i<sortDescending.length; i++) {
+    let sortDescending = score.slice().sort((a, b) => b - a);
+    for (let i = 0; i < sortDescending.length; i++) {
         hash[sortDescending[i]] = i + 1;
     }
-    for (let i=0; i<score.length; i++) {
+    for (let i = 0; i < score.length; i++) {
         if (hash[score[i]] <= 3) {
             result.push(rank[hash[score[i]]]);
             continue;
@@ -24,5 +24,5 @@ var findRelativeRanks = function(score) {
 };
 
 
-let score = [5,4,3,2,1]
+let score = [5, 4, 3, 2, 1]
 let result = findRelativeRanks(score);

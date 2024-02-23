@@ -12,4 +12,4 @@ function same(arr1, arr2) {
     return true;
 }
 
-same([1,2,3], [4,1,9])
+same([1, 2, 3], [4, 1, 9])

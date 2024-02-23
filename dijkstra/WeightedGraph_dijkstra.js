@@ -31,10 +31,10 @@ class PriorityQueue {
     bubbleup() {
         let idx = this.values.length - 1;
         const element = this.values[idx];
-        while(idx > 0) {
-            let parentidx = Math.floor((idx - 1)/2);
+        while (idx > 0) {
+            let parentidx = Math.floor((idx - 1) / 2);
             let parent = this.values[parentidx];
-            if(element.priority >= parent.priority) break;
+            if (element.priority >= parent.priority) break;
             this.values[parentidx] = element;
             this.values[idx] = parent;
             idx = parentidx;
@@ -45,7 +45,7 @@ class PriorityQueue {
         const min = this.values[0];
         const end = this.values.pop();
         //sink down
-        if(this.values.length > 0) {
+        if (this.values.length > 0) {
             this.values[0] = end;
             this.sinkDown();
         }
@@ -56,12 +56,12 @@ class PriorityQueue {
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];
-        while(true) {
+        while (true) {
             let leftChildIdx = 2 * idx + 1;
             let rightChildIdx = 2 * idx + 2;
             let rightChild, leftChild;
             let swap = null;
-            if(leftChildIdx < length) {
+            if (leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
                 if (leftChild.priority < element.priority) {
                     swap = leftChildIdx;
@@ -69,17 +69,17 @@ class PriorityQueue {
             }
             if (rightChildIdx < length) {
                 rightChild = this.values[rightChildIdx];
-                if(
-                    (swap === null && rightChild.priority < element.priority) || 
+                if (
+                    (swap === null && rightChild.priority < element.priority) ||
                     (swap !== null && rightChild.priority < leftChild.priority)
-                  ) {
-                      swap = rightChildIdx;  
+                ) {
+                    swap = rightChildIdx;
                 }
             }
             if (swap === null) break;
             this.values[idx] = this.values[swap];
             this.values[swap] = element;
-            idx = swap; 
+            idx = swap;
         }
     }
 }
@@ -98,12 +98,12 @@ class WeightedGraph {
     }
 
     addVertex(vertex) {
-        if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] =[];
+        if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
     }
 
     addEdge(vertex1, vertex2, weight) {
-        this.adjacencyList[vertex1].push({node:vertex2,weight});
-        this.adjacencyList[vertex2].push({node:vertex1, weight});
+        this.adjacencyList[vertex1].push({ node: vertex2, weight });
+        this.adjacencyList[vertex2].push({ node: vertex1, weight });
     }
 
     Dijkstra(start, finish) {
@@ -127,23 +127,23 @@ class WeightedGraph {
         while (nodes.values.length) {
             smallest = nodes.dequeue().val;
             if (smallest === finish) {
-//                 console.log(distances);
-//                 console.log(previous);
+                //                 console.log(distances);
+                //                 console.log(previous);
                 //WE are done
                 //Build up path to return at END
-                while(previous[smallest]) {
+                while (previous[smallest]) {
                     path.push(smallest);
                     smallest = previous[smallest];
                 }
                 break;
             }
-            if (smallest || distances[smallest] !== Infinity){
-                for(let neighbor in this.adjacencyList[smallest]) {
+            if (smallest || distances[smallest] !== Infinity) {
+                for (let neighbor in this.adjacencyList[smallest]) {
                     let nextNode = this.adjacencyList[smallest][neighbor];
                     //calculate new distances to neighboring nodes
                     let candidate = distances[smallest] + nextNode.weight;
                     let nextNeighbor = nextNode.node
-                    if (candidate < distances[nextNeighbor]){
+                    if (candidate < distances[nextNeighbor]) {
                         //updating new smallest distance to neighbor
                         distances[nextNeighbor] = candidate;
                         //updating previous - How we got to neighbor

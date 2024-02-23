@@ -61,6 +61,8 @@ var searchRange = (nums, target) => {
     return [-1,-1];
 };
 
+//                l m r
 let nums = [5,7,7,8,8,10], target = 8;
+//          0,1,2,3,4,5
 let result = searchRange(nums, target);
 console.log(result);

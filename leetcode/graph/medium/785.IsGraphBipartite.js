@@ -1,8 +1,8 @@
 // https://leetcode.com/problems/is-graph-bipartite/
 
 
-var isBipartite = function(graph) {
-    for (let i=0; i<graph.length; i++) {
+var isBipartite = function (graph) {
+    for (let i = 0; i < graph.length; i++) {
         const result = bsf(graph, visited = {}, queue = [i]);
         if (!result) return result;
     }
@@ -32,5 +32,5 @@ function bsf(graph, visited, queue) {
 
 // let graph = [[1,2,3],[0,2],[0,1,3],[0,2]];
 // let graph = [[1,3],[0,2],[1,3],[0,2]];
-let graph = [[],[2,4,6],[1,4,8,9],[7,8],[1,2,8,9],[6,9],[1,5,7,8,9],[3,6,9],[2,3,4,6,9],[2,4,5,6,7,8]];
+let graph = [[], [2, 4, 6], [1, 4, 8, 9], [7, 8], [1, 2, 8, 9], [6, 9], [1, 5, 7, 8, 9], [3, 6, 9], [2, 3, 4, 6, 9], [2, 4, 5, 6, 7, 8]];
 console.log(isBipartite(graph));

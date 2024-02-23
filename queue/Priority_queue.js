@@ -12,10 +12,10 @@ class PriorityQueue {
     bubbleup() {
         let idx = this.values.length - 1;
         const element = this.values[idx];
-        while(idx > 0) {
-            let parentidx = Math.floor((idx - 1)/2);
+        while (idx > 0) {
+            let parentidx = Math.floor((idx - 1) / 2);
             let parent = this.values[parentidx];
-            if(element.priority >= parent.priority) break;
+            if (element.priority >= parent.priority) break;
             this.values[parentidx] = element;
             this.values[idx] = parent;
             idx = parentidx;
@@ -26,7 +26,7 @@ class PriorityQueue {
         const min = this.values[0];
         const end = this.values.pop();
         //sink down
-        if(this.values.length > 0) {
+        if (this.values.length > 0) {
             this.values[0] = end;
             this.sinkDown();
         }
@@ -37,12 +37,12 @@ class PriorityQueue {
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];
-        while(true) {
+        while (true) {
             let leftChildIdx = 2 * idx + 1;
             let rightChildIdx = 2 * idx + 2;
             let rightChild, leftChild;
             let swap = null;
-            if(leftChildIdx < length) {
+            if (leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
                 if (leftChild.priority < element.priority) {
                     swap = leftChildIdx;
@@ -50,17 +50,17 @@ class PriorityQueue {
             }
             if (rightChildIdx < length) {
                 rightChild = this.values[rightChildIdx];
-                if(
-                    (swap === null && rightChild.priority < element.priority) || 
+                if (
+                    (swap === null && rightChild.priority < element.priority) ||
                     (swap !== null && rightChild.priority < leftChild.priority)
-                  ) {
-                      swap = rightChildIdx;  
+                ) {
+                    swap = rightChildIdx;
                 }
             }
             if (swap === null) break;
             this.values[idx] = this.values[swap];
             this.values[swap] = element;
-            idx = swap; 
+            idx = swap;
         }
     }
 }

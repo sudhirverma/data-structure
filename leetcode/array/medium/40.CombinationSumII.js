@@ -1,7 +1,9 @@
 // https://leetcode.com/problems/combination-sum-ii/
 
 function findUniqueCombination(candidates, target, start, sum, result, subResult) {
-    if (sum === target) result.push([...subResult]);
+    if (sum === target) {
+        result.push([...subResult]);
+    }
     for (let i = start; i< candidates.length; i++) {
         let newSum = sum + candidates[i];
         if (newSum <= target) {
@@ -22,7 +24,7 @@ var combinationSum2 = function(candidates, target) {
     return result;
 };
 
-// let candidates = [10,1,2,7,6,1,5,4], target = 8;
-let candidates = [2,5,2,1,2], target = 5;
+let candidates = [10,1,2,7,6,1,5,4], target = 8;
+// let candidates = [2,5,2,1,2], target = 5;
 let result = combinationSum2(candidates, target);
 console.log(result);

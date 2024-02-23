@@ -1,5 +1,5 @@
 class Graph {
-    constructor(){
+    constructor() {
         this.adjancenList = {};
     }
 
@@ -22,7 +22,7 @@ class Graph {
     }
 
     removeVertex(vertex) {
-        while(this.adjancenList[vertex].length) {
+        while (this.adjancenList[vertex].length) {
             const adjancenVertex = this.adjancenList[vertex].pop();
             this.removeEdge(vertex, adjancenVertex);
         }
@@ -34,12 +34,12 @@ class Graph {
         const viseted = {};
         const adjancenList = this.adjancenList;
 
-        (function dfs(vertex){
+        (function dfs(vertex) {
             if (!vertex) return null;
             viseted[vertex] = true;
             result.push(vertex);
             adjancenList[vertex].forEach(neighbor => {
-                if(!viseted[neighbor]){
+                if (!viseted[neighbor]) {
                     return dfs(neighbor)
                 }
             });

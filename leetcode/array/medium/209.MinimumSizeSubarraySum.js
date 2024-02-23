@@ -1,13 +1,13 @@
 // https://leetcode.com/problems/minimum-size-subarray-sum/
 
-var minSubArrayLen = function(target, nums) {
+var minSubArrayLen = function (target, nums) {
     let l = 0, r = 0;
     let length = nums.length;
     let result = Number.MAX_SAFE_INTEGER;
     let sum = 0
     while (l <= length && r <= length) {
         if (sum >= target) {
-            let newSize = r-l;
+            let newSize = r - l;
             if (result > newSize) {
                 result = newSize;
             }
@@ -25,5 +25,5 @@ var minSubArrayLen = function(target, nums) {
     return result
 };
 
-let target = 7, nums = [2,3,1,2,4,3];
+let target = 7, nums = [2, 3, 1, 2, 4, 3];
 console.log(minSubArrayLen(target, nums));

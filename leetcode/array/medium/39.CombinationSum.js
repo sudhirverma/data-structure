@@ -24,7 +24,7 @@ function createSubArray(results, subResult, start, sum, target, candidates) {
     }
 }
 
-var combinationSum = function(candidates, target) {
+var combinationSum = (candidates, target) => {
     const results = [];
     const subResult = [];
     createSubArray(results, subResult, 0, 0, target, candidates);

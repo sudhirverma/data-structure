@@ -28,7 +28,7 @@ function replaceOToX(m, n, visited, board) {
 
 function checkBorderOrNot(m, n, visited, board) {
     if (board[m]?.[n] === 'O' && !visited.dontChangeBorderConnectedZero[`${m}:${n}`]) {
-        if (board[m+1]?.[n] === undefined || board[m-1]?.[n] === undefined || board[m]?.[n+1] === undefined || board[m]?.[n-1] === undefined) {
+        if (board[m + 1]?.[n] === undefined || board[m - 1]?.[n] === undefined || board[m]?.[n + 1] === undefined || board[m]?.[n - 1] === undefined) {
             return dontReplaceO(m, n, visited, board);
         }
         return replaceOToX(m, n, visited, board);
@@ -67,7 +67,7 @@ const upMatrix = (m, n, visited, board) => {
     rightMatrix(m, n + 1, visited, board);
 }
 
-var solve = function(board) {
+var solve = function (board) {
     let visited = {
         dontChangeBorderConnectedZero: {}
     }
@@ -75,6 +75,6 @@ var solve = function(board) {
 };
 
 // let board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]];
-let board = [["O","X","X","O","X"],["X","O","O","X","O"],["X","O","X","O","X"],["O","X","O","O","O"],["X","X","O","X","O"]];
+let board = [["O", "X", "X", "O", "X"], ["X", "O", "O", "X", "O"], ["X", "O", "X", "O", "X"], ["O", "X", "O", "O", "O"], ["X", "X", "O", "X", "O"]];
 
 console.log(solve(board));

@@ -18,7 +18,7 @@ class BinarySearchTree {
             return this;
         } else {
             var current = this.root;
-            while(true) {
+            while (true) {
                 if (value === current.value) return undefined;
                 if (value < current.value) {
                     if (current.left === null) {
@@ -40,20 +40,20 @@ class BinarySearchTree {
     }
 
     find(value) {
-    if (this.root === null) return false;
-    var current = this.root;
-    var found = false;
-    while(current && !found) {
-        if(value < current.value) {
-            current = current.left;
-        } else if (value > current.value) {
-            current = current.right
-        } else {
-            found = true;
+        if (this.root === null) return false;
+        var current = this.root;
+        var found = false;
+        while (current && !found) {
+            if (value < current.value) {
+                current = current.left;
+            } else if (value > current.value) {
+                current = current.right
+            } else {
+                found = true;
+            }
         }
-    }
-    if (!found) return false;
-    return current;
+        if (!found) return false;
+        return current;
     }
 
     BFS() {
@@ -61,11 +61,11 @@ class BinarySearchTree {
             queue = [],
             node = this.root;
         queue.push(node);
-        while(queue.length) {
+        while (queue.length) {
             node = queue.shift();
             data.push(node);
-            if(node.left) queue.push(node.left);
-            if(node.right) queue.push(node.right);
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
         }
         return data;
     }

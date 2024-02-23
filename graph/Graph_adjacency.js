@@ -1,5 +1,5 @@
 class Graph {
-    constructor(){
+    constructor() {
         this.adjancenList = {};
     }
 
@@ -22,7 +22,7 @@ class Graph {
     }
 
     removeVertex(vertex) {
-        while(this.adjancenList[vertex].length) {
+        while (this.adjancenList[vertex].length) {
             const adjancenVertex = this.adjancenList[vertex].pop();
             this.removeEdge(vertex, adjancenVertex);
         }

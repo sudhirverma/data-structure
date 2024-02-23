@@ -5,11 +5,11 @@ function createPascalTriangle(pascal, result) {
     let newArr = [];
     let index1 = 0;
     let index2 = 1;
-    for (let i=0; i<=pascal; i++) {
+    for (let i = 0; i <= pascal; i++) {
         if (i === pascal || i === 0) {
             newArr[i] = 1
         } else {
-            let resultIndexToAdd = result[pascal-1];
+            let resultIndexToAdd = result[pascal - 1];
             newArr[i] = resultIndexToAdd[index1] + resultIndexToAdd[index2];
             index1++;
             index2++;
@@ -18,7 +18,7 @@ function createPascalTriangle(pascal, result) {
     result.push(newArr);
 }
 
-var generate = function(numRows) {
+var generate = function (numRows) {
     let result = [];
     let pascal = 0;
     while (pascal < numRows) {

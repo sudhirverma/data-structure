@@ -1,26 +1,26 @@
 // https://leetcode.com/problems/jump-game-ii/
 
-var jump = function(nums) {
+var jump = function (nums) {
     let currentReach = 0;
     let maxReach = 0;
     let numSteps = 0;
-    
+
     for (let x = 0; x < nums.length; x++) {
         maxReach = Math.max(maxReach, x + nums[x]);
-        
+
         if (currentReach >= nums.length - 1)
             return numSteps;
-        
+
         if (x === currentReach) {
             numSteps++;
             currentReach = maxReach;
         }
     }
-    
+
     return numSteps;
 };
 
-let nums = [2,3,1,1,4]
+let nums = [2, 3, 1, 1, 4]
 // let nums = [2,3,0,1,4];
 // let nums = [1,1,1,1,4];
 // let nums = [1,2,1,1,1];

@@ -1,30 +1,30 @@
 // https://leetcode.com/problems/valid-sudoku/
 
-const createRowCol = function(rowColSubBox, flatSudoku, i, row, count) {
+const createRowCol = function (rowColSubBox, flatSudoku, i, row, count) {
     if (rowColSubBox.row[row]?.[flatSudoku[i]]) return false;
     if (rowColSubBox.col[count]?.[flatSudoku[i]]) return false;
-    if (rowColSubBox.row[row] === undefined && flatSudoku[i] !== '.')  {
+    if (rowColSubBox.row[row] === undefined && flatSudoku[i] !== '.') {
         rowColSubBox.row[row] = {};
         rowColSubBox.row[row][flatSudoku[i]] = true;
     } else if (!rowColSubBox.row[row]?.[flatSudoku[i]] && flatSudoku[i] !== '.') {
-        rowColSubBox.row[row][flatSudoku[i]] = true;   
+        rowColSubBox.row[row][flatSudoku[i]] = true;
     }
-    
-    if (rowColSubBox.col[count] === undefined && flatSudoku[i] !== '.')  {
+
+    if (rowColSubBox.col[count] === undefined && flatSudoku[i] !== '.') {
         rowColSubBox.col[count] = {};
         rowColSubBox.col[count][flatSudoku[i]] = true;
     } else if (!rowColSubBox.col[count]?.[flatSudoku[i]] && flatSudoku[i] !== '.') {
-        rowColSubBox.col[count][flatSudoku[i]] = true;   
+        rowColSubBox.col[count][flatSudoku[i]] = true;
     }
 }
 
 const createObjectSubBox = function (rowColSubBox, flatSudoku, i, row, count, subBoxPos) {
     if (rowColSubBox.subBox[subBoxPos]?.[flatSudoku[i]]) return false;
-    if (rowColSubBox.subBox[subBoxPos] === undefined && flatSudoku[i] !== '.')  {
+    if (rowColSubBox.subBox[subBoxPos] === undefined && flatSudoku[i] !== '.') {
         rowColSubBox.subBox[subBoxPos] = {};
         rowColSubBox.subBox[subBoxPos][flatSudoku[i]] = true;
     } else if (!rowColSubBox.subBox[subBoxPos]?.[flatSudoku[i]] && flatSudoku[i] !== '.') {
-        rowColSubBox.subBox[subBoxPos][flatSudoku[i]] = true;   
+        rowColSubBox.subBox[subBoxPos][flatSudoku[i]] = true;
     }
 }
 
@@ -59,7 +59,7 @@ const createSubBox = function (rowColSubBox, flatSudoku, i, row, count) {
 }
 
 
-var isValidSudoku = function(board) {
+var isValidSudoku = function (board) {
     let rowColSubBox = {
         row: {},
         col: {},
@@ -68,7 +68,7 @@ var isValidSudoku = function(board) {
     let flatSudoku = board.flat();
     let count = 0;
     let row = 0;
-    for (let i=0; i<flatSudoku.length; i++) {
+    for (let i = 0; i < flatSudoku.length; i++) {
         if (count === 9) {
             count = 0;
             row++;
@@ -83,7 +83,7 @@ var isValidSudoku = function(board) {
             if (resultRowCol === false) return resultRowCol;
             const resultSubBox = createSubBox(rowColSubBox, flatSudoku, i, row, count);
             if (resultSubBox === false) return resultSubBox;
-        } else if ( count < 9) {
+        } else if (count < 9) {
             const resultRowCol = createRowCol(rowColSubBox, flatSudoku, i, row, count);
             if (resultRowCol === false) return resultRowCol;
             const resultSubBox = createSubBox(rowColSubBox, flatSudoku, i, row, count);
@@ -104,15 +104,15 @@ var isValidSudoku = function(board) {
 // ,[".","6",".",".",".",".","2","8","."]
 // ,[".",".",".","4","1","9",".",".","5"]
 // ,[".",".",".",".","8",".",".","7","9"]] // true
-let board = 
-[["8","3",".",".","7",".",".",".","."]
-,["6",".",".","1","9","5",".",".","."]
-,[".","9","8",".",".",".",".","6","."]
-,["8",".",".",".","6",".",".",".","3"]
-,["4",".",".","8",".","3",".",".","1"]
-,["7",".",".",".","2",".",".",".","6"]
-,[".","6",".",".",".",".","2","8","."]
-,[".",".",".","4","1","9",".",".","5"]
-,[".",".",".",".","8",".",".","7","9"]] // flase
+let board =
+    [["8", "3", ".", ".", "7", ".", ".", ".", "."]
+        , ["6", ".", ".", "1", "9", "5", ".", ".", "."]
+        , [".", "9", "8", ".", ".", ".", ".", "6", "."]
+        , ["8", ".", ".", ".", "6", ".", ".", ".", "3"]
+        , ["4", ".", ".", "8", ".", "3", ".", ".", "1"]
+        , ["7", ".", ".", ".", "2", ".", ".", ".", "6"]
+        , [".", "6", ".", ".", ".", ".", "2", "8", "."]
+        , [".", ".", ".", "4", "1", "9", ".", ".", "5"]
+        , [".", ".", ".", ".", "8", ".", ".", "7", "9"]] // flase
 const result = isValidSudoku(board);
 console.log(result);

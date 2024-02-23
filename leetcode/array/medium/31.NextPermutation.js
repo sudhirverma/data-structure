@@ -32,6 +32,12 @@ function reverse(arr, l, r) {
     }
 }
 
-let num = [1,2,4,3];
-let result = nextPermutation(nums);
-console.log(result)
+// let num = [2, 3, 1]
+let num = [1,3,2]
+//          i
+// [2,3,1]
+// [2,1,3]
+// let num = [1,2,3,4];
+// let num = [3,2,1];
+let result = nextPermutation(num);
+console.log(num)

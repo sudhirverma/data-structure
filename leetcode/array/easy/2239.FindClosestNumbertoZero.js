@@ -1,10 +1,10 @@
 // https://leetcode.com/problems/find-closest-number-to-zero/
 
-var findClosestNumber = function(nums) {
+var findClosestNumber = function (nums) {
     let zero = 0;
     let closestToZeroInNegitavie;
     let closestToZeroInPositive;
-    for (let i=0; i<nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         if (zero === nums[i]) return nums[i];
         if (closestToZeroInPositive > nums[i] && nums[i] > zero || closestToZeroInPositive === undefined && nums[i] > zero) {
             closestToZeroInPositive = nums[i];
@@ -19,6 +19,6 @@ var findClosestNumber = function(nums) {
     return closestToZeroInPositive;
 };
 
-let nums = [-4,-2,1,4,8];
+let nums = [-4, -2, 1, 4, 8];
 let result = findClosestNumber(nums);
 console.log(result);

@@ -1,21 +1,21 @@
 // https://leetcode.com/problems/maximum-average-subarray-i/
 
-var findMaxAverage = function(nums, k) {
+var findMaxAverage = function (nums, k) {
     let maxNumber = Number.MIN_SAFE_INTEGER;
-    for (let i = 0; i<nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         let newMaxNumber = 0;
-        if (nums[k-1+i] !== undefined) {
-            for (let j=0; j<k; j++) {
-                newMaxNumber += nums[i+j];
+        if (nums[k - 1 + i] !== undefined) {
+            for (let j = 0; j < k; j++) {
+                newMaxNumber += nums[i + j];
             }
         } else {
-            return maxNumber/k;
+            return maxNumber / k;
         }
         if (maxNumber < newMaxNumber) {
             maxNumber = newMaxNumber;
         }
     }
-    return maxNumber/k;
+    return maxNumber / k;
 };
 
 // var findMaxAverage = function(nums, k) {
@@ -35,7 +35,7 @@ var findMaxAverage = function(nums, k) {
 //     return maxNumber/k;
 // };
 
-let nums = [1,12,-5,-6,50,3], k = 4;
+let nums = [1, 12, -5, -6, 50, 3], k = 4;
 
 let result = findMaxAverage(nums, k);
 

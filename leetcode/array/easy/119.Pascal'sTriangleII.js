@@ -4,11 +4,11 @@ function createPascal(pascal, result) {
     let index1 = 0;
     let index2 = 1;
     let newArr = [];
-    for (let i=0; i<=pascal; i++) {
+    for (let i = 0; i <= pascal; i++) {
         if (pascal === i || i === 0) {
             newArr[i] = 1;
         } else {
-            let resultValueToAdd = result[pascal-1];
+            let resultValueToAdd = result[pascal - 1];
             newArr[i] = resultValueToAdd[index1] + resultValueToAdd[index2];
             index1++;
             index2++;

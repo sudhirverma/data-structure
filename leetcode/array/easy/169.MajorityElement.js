@@ -1,9 +1,9 @@
 // https://leetcode.com/problems/majority-element/
 
-var majorityElement = function(nums) {
+var majorityElement = function (nums) {
     let hash = {};
     let result;
-    for (let i=0; i<nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         if (!hash[nums[i]]) {
             hash[nums[i]] = 1;
             if (!result) {
@@ -19,6 +19,6 @@ var majorityElement = function(nums) {
     return result;
 };
 
-let nums = [2,2,1,1,1,2,2,1,1,1]
+let nums = [2, 2, 1, 1, 1, 2, 2, 1, 1, 1]
 let result = majorityElement(nums);
 console.log(result);

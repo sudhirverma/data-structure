@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/rotate-array/
 
 function swap(nums, l, r) {
-    while(l < r) {
+    while (l < r) {
         let first = nums[l];
         let last = nums[r];
         nums[l] = last;
@@ -11,7 +11,7 @@ function swap(nums, l, r) {
     }
 }
 
-var rotate = function(nums, k) {
+var rotate = function (nums, k) {
     // reverse nums
     swap(nums, 0, nums.length - 1);
     const rotate = k % nums.length;
@@ -21,5 +21,5 @@ var rotate = function(nums, k) {
     swap(nums, rotate, nums.length - 1);
 };
 
-let nums = [1,2,3,4,5,6,7], k = 3;
+let nums = [1, 2, 3, 4, 5, 6, 7], k = 3;
 console.log(rotate(numbers, k));

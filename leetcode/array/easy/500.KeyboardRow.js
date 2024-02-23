@@ -4,10 +4,10 @@ let firstRowRegex = /[qwertyuiop]/gm;
 let secondRowRegex = /[asdfghjkl]/gm;
 let thirdRowRegex = /[zxcvbnm]/gm;
 
-var findWords = function(words) {
+var findWords = function (words) {
     let result = [];
-    
-    for (let i=0; i<words.length; i++) {
+
+    for (let i = 0; i < words.length; i++) {
         if (words[i].toLowerCase().match(firstRowRegex)?.length === words[i].length) {
             result.push(words[i]);
             continue;
@@ -22,5 +22,5 @@ var findWords = function(words) {
         }
     }
     return result;
-    
+
 };

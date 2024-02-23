@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/3sum/
 
-export var threeSum = function(nums) {
+export var threeSum = function (nums) {
     nums.sort((a, b) => a - b);
     const results = [];
     for (let i = 0; i < nums.length - 2; i++) {
@@ -21,6 +21,6 @@ export var threeSum = function(nums) {
     return results;
 };
 
-let nums = [-1,0,1,2,-1,-4];
+let nums = [-1, 0, 1, 2, -1, -4];
 let result = threeSum(nums);
 console.log(result);

@@ -35,13 +35,13 @@ function bubbleSort(arr) {
         noSwaps = true;
         for (let j = 0; j < i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
-                swap(arr, j, j+1);
+                swap(arr, j, j + 1);
                 noSwaps = false;
             }
         }
-        if  (noSwaps) break;
-    } 
+        if (noSwaps) break;
+    }
     return arr;
 }
 
-bubbleSort([37,45,29,8,12,-3])
+bubbleSort([37, 45, 29, 8, 12, -3])

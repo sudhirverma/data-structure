@@ -2,16 +2,16 @@
 
 const evalRPN = (tokens) => {
     const stack = [];
-    for (let i=0; i<tokens.length; i++) {
+    for (let i = 0; i < tokens.length; i++) {
         if (tokens[i] === '+') {
             stack.push(stack.pop() + stack.pop());
         } else if (tokens[i] === '-') {
-            stack.push(stack.pop() - stack.pop());       
+            stack.push(stack.pop() - stack.pop());
         } else if (tokens[i] === '*') {
             stack.push(stack.pop() * stack.pop());
         } else if (tokens[i] === '/') {
             let first = stack.pop(), second = stack.pop();
-            stack.push(Math.floor(second / first));       
+            stack.push(Math.floor(second / first));
         } else {
             stack.push(parseInt(tokens[i]));
         }
@@ -19,5 +19,5 @@ const evalRPN = (tokens) => {
     return stack[0];
 };
 
-let tokens = ["4","13","5","/","+"];
+let tokens = ["4", "13", "5", "/", "+"];
 console.log(evalRPN(tokens));

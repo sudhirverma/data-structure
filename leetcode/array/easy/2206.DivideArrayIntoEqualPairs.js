@@ -2,9 +2,9 @@
 
 
 
-var divideArray = function(nums) {
+var divideArray = function (nums) {
     let deivideInPair = {};
-    for (let i=0; i<nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         if (!deivideInPair[nums[i]]) {
             deivideInPair[nums[i]] = 1;
             continue;
@@ -15,6 +15,6 @@ var divideArray = function(nums) {
     return false;
 };
 
-let nums = [3,2,3,2,2,2];
+let nums = [3, 2, 3, 2, 2, 2];
 let result = divideArray(nums);
 console.log(result);

@@ -1,15 +1,15 @@
 // https://leetcode.com/problems/design-hashset/
 
 
-var MyHashSet = function() {
-    
+var MyHashSet = function () {
+
 };
 
 /** 
  * @param {number} key
  * @return {void}
  */
-MyHashSet.prototype.add = function(key) {
+MyHashSet.prototype.add = function (key) {
     this[key] = null;
 };
 
@@ -17,7 +17,7 @@ MyHashSet.prototype.add = function(key) {
  * @param {number} key
  * @return {void}
  */
-MyHashSet.prototype.remove = function(key) {
+MyHashSet.prototype.remove = function (key) {
     delete this[key]
 };
 
@@ -25,7 +25,7 @@ MyHashSet.prototype.remove = function(key) {
  * @param {number} key
  * @return {boolean}
  */
-MyHashSet.prototype.contains = function(key) {
+MyHashSet.prototype.contains = function (key) {
     return this.hasOwnProperty(key)
 };
 

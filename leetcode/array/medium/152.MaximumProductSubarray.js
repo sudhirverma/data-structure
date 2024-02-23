@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/maximum-product-subarray/
 
-var maxProduct = function(nums) {
+var maxProduct = function (nums) {
     let result = nums[0];
     let product = nums[0];
     let storeMaxMin;
@@ -20,13 +20,13 @@ var maxProduct = function(nums) {
             if (storeMaxMin?.length === undefined || storeMaxMin.length === 0) {
                 const first = product * nums[i];
                 const second = nums[i];
-                storeMaxMin = [first, second].sort((a,b) => a-b);
+                storeMaxMin = [first, second].sort((a, b) => a - b);
                 if (result < storeMaxMin[1]) result = storeMaxMin[1];
                 continue;
             }
             const first = storeMaxMin[0] * nums[i];
             const second = storeMaxMin[1] * nums[i];
-            storeMaxMin = [first, second].sort((a,b) => a-b);
+            storeMaxMin = [first, second].sort((a, b) => a - b);
             if (result < storeMaxMin[1]) result = storeMaxMin[1];
             continue;
         }
@@ -37,6 +37,6 @@ var maxProduct = function(nums) {
 };
 
 // let nums = [2,3,-2,4];
-let nums = [0,-2,-3];
+let nums = [0, -2, -3];
 // let nums = [1,0,-1,2,3,-5,-2];
 console.log(maxProduct(nums));

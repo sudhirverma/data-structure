@@ -1,10 +1,10 @@
 // https://leetcode.com/problems/third-maximum-number/
 
-var thirdMax = function(nums) {
-    nums.sort((a,b) => b-a);
+var thirdMax = function (nums) {
+    nums.sort((a, b) => b - a);
     let countThirdMax = 0;
     let rememberVisit = {};
-    for (let i=0; i<nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         if (!rememberVisit[nums[i]]) {
             rememberVisit[nums[i]] = true;
             countThirdMax++;
@@ -18,3 +18,7 @@ var thirdMax = function(nums) {
     }
     return rememberVisit.max;
 };
+
+const nums = [3,2,1];
+
+console.log(thirdMax(nums))

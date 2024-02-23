@@ -2,12 +2,12 @@
 
 
 const combination = (k, start, n, result, subResult = [], sum = 0) => {
-    for (let i = start; i<=9; i++) {
+    for (let i = start; i <= 9; i++) {
         let newSum = sum + i;
         subResult.push(i);
-        if (subResult.length === k-1) {
+        if (subResult.length === k - 1) {
             let lastSum = n - newSum;
-            if (lastSum < 0 || lastSum > 9 || subResult[k-2] >= lastSum) {
+            if (lastSum < 0 || lastSum > 9 || subResult[k - 2] >= lastSum) {
                 subResult.pop();
                 continue;
             }
@@ -15,12 +15,12 @@ const combination = (k, start, n, result, subResult = [], sum = 0) => {
             subResult.pop();
             continue;
         }
-        combination(k, i+1, n, result, subResult, newSum);
+        combination(k, i + 1, n, result, subResult, newSum);
         subResult.pop();
     }
 }
 
-var combinationSum3 = function(k, n) {
+var combinationSum3 = function (k, n) {
     const result = [];
     combination(k, 1, n, result);
     return result;

@@ -1,5 +1,5 @@
 class Graph {
-    constructor(){
+    constructor() {
         this.adjancenList = {};
     }
 
@@ -22,7 +22,7 @@ class Graph {
     }
 
     removeVertex(vertex) {
-        while(this.adjancenList[vertex].length) {
+        while (this.adjancenList[vertex].length) {
             const adjancenVertex = this.adjancenList[vertex].pop();
             this.removeEdge(vertex, adjancenVertex);
         }
@@ -36,13 +36,13 @@ class Graph {
         let currentVertex;
         visited[start] = true;
 
-        while(queue.length) {
-//             console.log(queue);
+        while (queue.length) {
+            //             console.log(queue);
             currentVertex = queue.shift();
             result.push(currentVertex);
-//             this.adjancenList[currentVertex].slice().reverse().forEach(neighbor => {
+            //             this.adjancenList[currentVertex].slice().reverse().forEach(neighbor => {
             this.adjancenList[currentVertex].forEach(neighbor => {
-                if(!visited[neighbor]) {
+                if (!visited[neighbor]) {
                     visited[neighbor] = true;
                     queue.push(neighbor);
                 }

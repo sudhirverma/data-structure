@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/clone-graph/
 
-var cloneGraph = function(node) {
-    return dfs(node, memo={});
+var cloneGraph = function (node) {
+    return dfs(node, memo = {});
 };
 
 function dfs(node, memo) {
@@ -15,6 +15,6 @@ function dfs(node, memo) {
     return root;
 }
 
-let adjList = [[2,4],[1,3],[2,4],[1,3]];
+let adjList = [[2, 4], [1, 3], [2, 4], [1, 3]];
 console.log(cloneGraph(adjList))
 

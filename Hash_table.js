@@ -1,5 +1,5 @@
 class HashTable {
-    constructor(size=4) {
+    constructor(size = 4) {
         this.keyMap = new Array(size);
     }
 
@@ -16,7 +16,7 @@ class HashTable {
 
     set(key, value) {
         let index = this._hash(key);
-        if(!this.keyMap[index]) {
+        if (!this.keyMap[index]) {
             this.keyMap[index] = [];
         }
         this.keyMap[index].push([key, value]);
@@ -24,7 +24,7 @@ class HashTable {
 
     get(key) {
         let index = this._hash(key);
-        if(this.keyMap[index]) {
+        if (this.keyMap[index]) {
             for (let i = 0; i < this.keyMap[index].length; i++) {
                 if (this.keyMap[index][i][0] === key) {
                     return this.keyMap[index][i][1];
@@ -38,7 +38,7 @@ class HashTable {
         let keysArr = [];
         for (let i = 0; i < this.keyMap.length; i++) {
             if (this.keyMap[i]) {
-                for (let j = 0; j < this.keyMap[i].length; j++){
+                for (let j = 0; j < this.keyMap[i].length; j++) {
                     if (!keysArr.includes(this.keyMap[i][j][0])) {
                         keysArr.push(this.keyMap[i][j][0]);
                     }
@@ -52,7 +52,7 @@ class HashTable {
         let valuesArr = [];
         for (let i = 0; i < this.keyMap.length; i++) {
             if (this.keyMap[i]) {
-                for (let j = 0; j < this.keyMap[i].length; j++){
+                for (let j = 0; j < this.keyMap[i].length; j++) {
                     if (!valuesArr.includes(this.keyMap[i][j][1])) {
                         valuesArr.push(this.keyMap[i][j][1]);
                     }

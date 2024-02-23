@@ -1,12 +1,8 @@
 // https://leetcode.com/problems/set-matrix-zeroes/
 
 
-function setMatrixZeroes(matrix, m, n, visited) {
 
-}
-
-
-var findZeroes = function(matrix, m = 0, n = 0, visited = {}) {
+var findZeroes = function (matrix, m = 0, n = 0, visited = {}) {
     const key = `${m}:${n}`;
     if (visited[key]) return;
     visited[key] = true;
@@ -18,5 +14,5 @@ var findZeroes = function(matrix, m = 0, n = 0, visited = {}) {
     return matrix;
 };
 
-let matrix = [[1,1,1],[1,0,1],[1,1,1]]
+let matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
 console.log(findZeroes(matrix));

@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts/
 
-var minimumOperations = function(nums) {
-    nums.sort((a,b) => a-b);
+var minimumOperations = function (nums) {
+    nums.sort((a, b) => a - b);
     let i = 0;
     let count = 0;
     while (i < nums.length) {
@@ -18,6 +18,6 @@ var minimumOperations = function(nums) {
     return count;
 };
 
-let nums = [1,5,0,3,5];
+let nums = [1, 5, 0, 3, 5];
 let result = minimumOperations(nums);
 console.log(result);

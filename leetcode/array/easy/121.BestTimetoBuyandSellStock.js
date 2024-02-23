@@ -1,11 +1,11 @@
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
     let hash = {
         maxProfit: 0,
         day1Price: undefined
     }
-    for (let i=0; i<prices.length; i++) {
+    for (let i = 0; i < prices.length; i++) {
         if (hash.day1Price === undefined) {
             hash.day1Price = prices[i];
         }
@@ -20,5 +20,4 @@ var maxProfit = function(prices) {
         }
     }
     return hash.maxProfit;
-    
 };
